@@ -71,7 +71,7 @@ console.log(yearsUntilRetirement(1991, 'Jonas'));
 console.log(yearsUntilRetirement(1980, 'Bob'));
 
 
-//
+// Functions calling other functions
 function cutFruitPieces(fruit) {
 	return fruit * 4;
 }
@@ -84,3 +84,24 @@ function fruitProcessor2(apples, oranges) {
 	return juice;
 }
 console.log(fruitProcessor2(2, 3));
+
+
+// Functions Review
+const calcAge = function (birthYear) {
+	return 2037 - birthYear;
+}
+
+const yearsUntilRetirement2 = function (birthYear, firstName) {
+	const age = calcAge(birthYear);
+	const retirement = 65 - age;
+
+	if (retirement > 0) {
+		console.log(`${firstName} retires in ${retirement} years`);
+		return retirement; // return 뒤에 오는 코드는 실행 안 됨!!!
+	} else {
+		return -1; // 'no meaning' number : -1 or 9999
+	}
+}
+
+console.log(yearsUntilRetirement2(1991, 'Jonas'));
+console.log(yearsUntilRetirement2(1950, 'Mike'));
