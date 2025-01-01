@@ -1,3 +1,5 @@
+'use strict';
+
 // for loop
 // for loop keeps running while condition is TRUE
 console.log('Lifting weights repetition 1');
