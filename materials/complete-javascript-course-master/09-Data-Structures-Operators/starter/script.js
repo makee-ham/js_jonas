@@ -72,6 +72,58 @@ const restaurant = {
   },
 };
 
+/*
+//////////////////////////////////////////////////
+// Nullish Coalescing Operator (??)
+
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10; // 그냥 OR 쓰면 0명이 false돼서 디폴트 값인 10이 나옴 ㅠㅠ
+console.log(guests);
+
+// Nullish: null and undefined (NOT 0 or '')
+// 이 ?? 연산자는 0과 ''를 true로 인식함!!!
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+*/
+
+/*
+/////////////////////////////////////////
+// Short Circuiting (&& and ||)
+
+console.log('---- OR ----');
+// Use ANY data type, return ANY data type, short-circuiting
+console.log(3 || 'Jonas'); // 보나마나 true니까 뒤에 건 보지도 않음
+console.log('' || 'Jonas');
+console.log(true || 0);
+console.log(undefined || null); // 전부 false면 끝까지 보고 마지막 값 되돌려줌
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+// restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// 레스토랑에 numGuests property 있으면~ 그걸 돌려주고 : 아니면 10을 돌려줘 (이런 식으로 디폴트 값으로 쓰는듯)
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10; // OR은 디폴트 값으로 쓰고.. AND는 함수 재생기(?)로 쓰고...
+console.log(guests2);
+
+console.log('---- AND ----');
+console.log(0 && 'Jonas'); // 보나마나 false니까 뒤에 건 보지도 않음
+console.log(7 && 'Jonas'); // 전부 true면 끝까지 보고 마지막 값 되돌려줌
+
+console.log('Hello' && 23 && null && 'jonas');
+
+// Practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+// 이러면 .orderPizza 있으니까 true라서, 뒤에 것도 evaluate 돼서 함수가 실행됨!! 짱 신기!!
+*/
+
+/*
+////////////////////////////////////////////////////
 // rest pattern can be used where we would write variable names separated by commas
 // not 'values' separated by commas. << this uses spread pattern
 
@@ -110,6 +162,7 @@ add(...x);
 
 restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 restaurant.orderPizza('mushrooms');
+*/
 
 /////////////////////////////////////////
 /*
