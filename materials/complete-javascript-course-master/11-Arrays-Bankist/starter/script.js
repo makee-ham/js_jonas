@@ -74,3 +74,16 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// SLICE (do not mutate original array)
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4)); // 2번, 3번 요소 반환; 2이상 4미만
+console.log(arr.slice(-2));
+console.log(arr.slice(-1)); // 마지막 요소 반환
+console.log(arr.slice(1, -2)); // 1번 요소부터 쭉 반환하되, 마지막 두 요소는 반환하지 아니함
+console.log(arr.slice());
+console.log([...arr]);
+
+// SPLICE (mutates original array)
