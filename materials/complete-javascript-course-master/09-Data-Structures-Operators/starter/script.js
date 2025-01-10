@@ -71,6 +71,72 @@ const restaurant = {
 };
 
 /*
+/////////////////////////////////////////////
+// Sets
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+console.log(ordersSet); // unique한 value를 set에 담기에, 중복되는 value는 제한다.
+
+console.log(new Set('Jonas'));
+
+console.log(ordersSet.size); // array의 length와 유사
+console.log(ordersSet.has('Pizza')); // array의 includes와 유사
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread');
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto');
+// ordersSet.clear();
+console.log(ordersSet);
+
+for (const order of ordersSet) console.log(order); // Set은 iterable이기에, looping이 가능하다!
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)]; // Set은 iterable이기에, spread 연산자도 가능하다! 이렇게 array로 변환할 수 있다.
+console.log(staffUnique);
+
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+);
+
+console.log(new Set('jonasschmedtmann').size);
+*/
+
+/*
+/////////////////////////////////////////////////////////////
+// Looping Objects: Object Keys, Values, and Entries
+
+// Property NAMES
+const properties = Object.keys(openingHours);
+console.log(properties); // properties(keys)로 구성된 array가 나온다
+
+let openStr = `We are open on ${properties.length} days: `;
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+// Property VALUES
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire object
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+// [key, value]
+for (const [day, { open, close }] of entries) {
+  console.log(`On ${day} we open at ${open} and close at ${close}`);
+}
+*/
+
+/*
 ////////////////////////////////////////////////////
 // Optional Chaining (?.)
 if (restaurant.openingHours && restaurant.openingHours.mon)
