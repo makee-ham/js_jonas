@@ -75,15 +75,58 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
+/*
+
 let arr = ['a', 'b', 'c', 'd', 'e'];
 
-// SLICE (do not mutate original array)
+// SLICE (does not mutate original array)
 console.log(arr.slice(2));
 console.log(arr.slice(2, 4)); // 2번, 3번 요소 반환; 2이상 4미만
 console.log(arr.slice(-2));
 console.log(arr.slice(-1)); // 마지막 요소 반환
-console.log(arr.slice(1, -2)); // 1번 요소부터 쭉 반환하되, 마지막 두 요소는 반환하지 아니함
+console.log(arr.slice(
+1, -2)); // 1번 요소부터 쭉 반환하되, 마지막 두 요소는 반환하지 아니함
 console.log(arr.slice());
 console.log([...arr]);
 
 // SPLICE (mutates original array)
+// console.log(arr.splice(2)); // 2번 요소부터 '추출'
+// console.log(arr); // arr는 0, 1번 요소만 남게 됨. 2번 요소부터 추출됐으니까.
+arr.splice(-1); // arr의 마지막 요소 제거
+console.log(arr);
+arr.splice(1, 2); // slice와 달리, 1번 요소부터 2개 요소 추출(제거)
+console.log(arr);
+
+// REVERSE (mutates original array)
+arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['j', 'i', 'h', 'g', 'f'];
+console.log(arr2.reverse()); // reverse도 원래 배열에 영향 미침
+console.log(arr2);
+
+// CONCAT (does not mutate original array)
+const letters = arr.concat(arr2);
+console.log(letters);
+console.log([...arr, ...arr2]);
+
+// JOIN
+console.log(letters.join(' - '));
+
+*/
+////////////////////////////////////////////////////////
+/*
+// AT
+const arr = [23, 11, 64];
+console.log(arr[0]);
+console.log(arr.at(0)); // "array dot at position zero"
+
+// getting last array element (마지막 '요소' 추출하기)
+console.log(arr[arr.length - 1]);
+console.log(arr.slice(-1)[0]);
+console.log(arr.at(-1)); // 짜잔~ 이게 되네~
+
+// string에도 된다!
+console.log('jonas'.at(0));
+console.log('jonas'.at(-1));
+
+*/
+//////////////////////////////////////////////////////////
