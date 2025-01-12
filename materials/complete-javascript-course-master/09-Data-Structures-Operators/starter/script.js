@@ -19,23 +19,23 @@ const openingHours = {
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
-const italianFoods = new Set([
-  'pasta',
-  'gnocchi',
-  'tomatoes',
-  'olive oil',
-  'garlic',
-  'basil',
-]);
+// const italianFoods = new Set([
+//   'pasta',
+//   'gnocchi',
+//   'tomatoes',
+//   'olive oil',
+//   'garlic',
+//   'basil',
+// ]);
 
-const mexicanFoods = new Set([
-  'tortillas',
-  'beans',
-  'rice',
-  'tomatoes',
-  'avocado',
-  'garlic',
-]);
+// const mexicanFoods = new Set([
+//   'tortillas',
+//   'beans',
+//   'rice',
+//   'tomatoes',
+//   'avocado',
+//   'garlic',
+// ]);
 
 // Data needed for first part of the section
 const restaurant = {
@@ -70,6 +70,96 @@ const restaurant = {
   },
 };
 
+//////////////////////////////////////////
+// Maps
+// 객체와 다르게, Map은 모든 타입을 key값으로 가질 수 있다.
+const rest = new Map();
+rest.set('name', 'Classico Italiano'); // Set의 add같은 기능이 set임. set은 값을 추가할 뿐만 아니라, return하기도 함.
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+// 때문에, 메소드 체이닝이 가능하다. (연속으로 이어서 map에 요소 추가)
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :D')
+  .set(false, 'We are closed :(');
+
+// get은 key값 입력 시 value 불러온다.
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('categories'));
+rest.delete(2);
+console.log(rest);
+console.log(rest.size);
+// rest.clear();
+
+// rest.set([1, 2], 'Test');
+// console.log(rest.get([1, 2])); // 생긴 건 같아도, key로 쓰인 [1, 2]와 여기서 호출할 때 쓴 [1, 2]는 다른 array(같은 객체(그중에서도 배열)가 아님)이기 때문에 이것의 결과는 undefined가 된다.
+// ... 그러므로 변수로 저장해서 써먹는다...
+const arr = [1, 2];
+rest.set(arr, 'Test');
+console.log(rest.get(arr));
+
+// 무려 html elements도 된다
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+
+/*
+//////////////////////////////////////////
+// New Operations to Make Sets Useful!
+
+const italianFoods = new Set([
+  'pasta',
+  'gnocchi',
+  'tomatoes',
+  'olive oil',
+  'garlic',
+  'basil',
+]);
+
+const mexicanFoods = new Set([
+  'tortillas',
+  'beans',
+  'rice',
+  'tomatoes',
+  'avocado',
+  'garlic',
+]);
+
+// intersection - 교집합; 겹치는 거 찾기
+const commonFoods = italianFoods.intersection(mexicanFoods);
+console.log('Intersection:', commonFoods);
+console.log([...commonFoods]);
+
+// union - 합집합; 세트 합치기
+const italianMexicanFusion = italianFoods.union(mexicanFoods);
+console.log('Union:', italianMexicanFusion);
+
+console.log([...new Set([...italianFoods, ...mexicanFoods])]);
+
+// difference - 차집합; 첫 set엔 있지만 second one엔 없는 값들 반환
+const uniqueItalianFoods = italianFoods.difference(mexicanFoods);
+console.log('Difference italian', uniqueItalianFoods);
+
+const uniqueMexicanFoods = mexicanFoods.difference(italianFoods);
+console.log('Difference mexican', uniqueMexicanFoods);
+
+// symmetricDifference - 대칭차집합; 합집합-교집합
+const uniqueItalianAndMexicanFoods =
+  italianFoods.symmetricDifference(mexicanFoods);
+console.log(uniqueItalianAndMexicanFoods);
+
+// isDisjointFrom - 서로 교집합 없는지 확인. 없으면 true, 있으면 false
+console.log(italianFoods.isDisjointFrom(mexicanFoods));
+*/
+
 /*
 /////////////////////////////////////////////
 // Sets
@@ -93,6 +183,8 @@ ordersSet.add('Garlic Bread');
 ordersSet.delete('Risotto');
 // ordersSet.clear();
 console.log(ordersSet);
+
+// Set은 unique하니까... 하나하나 직접 불러올 순 없다
 
 for (const order of ordersSet) console.log(order); // Set은 iterable이기에, looping이 가능하다!
 
