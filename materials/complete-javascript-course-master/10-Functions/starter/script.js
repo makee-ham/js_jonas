@@ -227,6 +227,7 @@ console.log(addVAT2(23));
 */
 ////////////////////////////////////////////////
 
+/*
 // Immediately Invoked Function Expressions (IIFE)
 // function that disappears right after it's called ONCE.
 const runOnce = function () {
@@ -237,7 +238,32 @@ runOnce();
 // 이게 바로 IIFE
 (function () {
   console.log('This will never run again');
+  const isPrivate = 23;
 })(); // statement가 아닌 expression으로 괄호로 감싸서 바꿔주고, ()로 바로 실행!
+
+// console.log(isPrivate);
 
 (() => console.log('This will ALSO never run again'))();
 // 얘도 위와 같음
+
+{
+  const isPrivate = 23;
+  var notPrivate = 46;
+}
+
+// console.log(isPrivate);
+console.log(notPrivate);
+*/
+////////////////////////////////////////////////////
+
+// Closures
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
